@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yinren.com/"/>
-  <updated>2017-12-06T15:07:31.204Z</updated>
+  <updated>2017-12-07T14:54:23.411Z</updated>
   <id>https://yinren.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>blog1</title>
+    <link href="https://yinren.com/2017/12/07/blog1/"/>
+    <id>https://yinren.com/2017/12/07/blog1/</id>
+    <published>2017-12-07T14:52:46.000Z</published>
+    <updated>2017-12-07T14:54:23.411Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h2&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>hello-world.md</title>
