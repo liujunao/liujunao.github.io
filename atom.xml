@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yinren.com/"/>
-  <updated>2017-12-07T14:54:23.411Z</updated>
+  <updated>2017-12-07T15:32:50.317Z</updated>
   <id>https://yinren.com/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>new tags</title>
+    <link href="https://yinren.com/2017/12/07/new-tags/"/>
+    <id>https://yinren.com/2017/12/07/new-tags/</id>
+    <published>2017-12-07T14:56:48.000Z</published>
+    <updated>2017-12-07T15:32:50.317Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="我的标签是tag1"><a href="#我的标签是tag1" class="headerlink" title="我的标签是tag1"></a>我的标签是tag1</h2>]]></content>
+    
+    <summary type="html">
+    
+      这里是内容简介
+    
+    </summary>
+    
+    
+      <category term="tags1" scheme="https://yinren.com/tags/tags1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>new Types</title>
+    <link href="https://yinren.com/2017/12/07/new-Types/"/>
+    <id>https://yinren.com/2017/12/07/new-Types/</id>
+    <published>2017-12-07T14:54:50.000Z</published>
+    <updated>2017-12-07T15:32:59.457Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="为的分类是type1"><a href="#为的分类是type1" class="headerlink" title="为的分类是type1"></a>为的分类是type1</h2>]]></content>
+    
+    <summary type="html">
+    
+      这里是内容简介
+    
+    </summary>
+    
+      <category term="type1" scheme="https://yinren.com/categories/type1/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>blog1</title>
     <link href="https://yinren.com/2017/12/07/blog1/"/>
     <id>https://yinren.com/2017/12/07/blog1/</id>
     <published>2017-12-07T14:52:46.000Z</published>
-    <updated>2017-12-07T14:54:23.411Z</updated>
+    <updated>2017-12-07T15:24:53.861Z</updated>
     
     <content type="html"><![CDATA[<h2 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h2>]]></content>
     
@@ -30,6 +70,29 @@
       
       
         &lt;h2 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h2&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-test</title>
+    <link href="https://yinren.com/2017/12/07/hexo-test/"/>
+    <id>https://yinren.com/2017/12/07/hexo-test/</id>
+    <published>2017-12-07T14:22:15.000Z</published>
+    <updated>2017-12-07T15:25:38.809Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p>##我的第一篇hexo博客</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;##我的第一篇hexo博客&lt;/p&gt;
+
       
     
     </summary>
