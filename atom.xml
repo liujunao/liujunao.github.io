@@ -5,9 +5,9 @@
   <subtitle>个人博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://yinren.com/"/>
-  <updated>2017-12-07T15:32:50.317Z</updated>
-  <id>https://yinren.com/</id>
+  <link href="yinren.51oinfo.com/"/>
+  <updated>2017-12-07T15:32:59.457Z</updated>
+  <id>yinren.51oinfo.com/</id>
   
   <author>
     <name>隐忍</name>
@@ -17,29 +17,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new tags</title>
-    <link href="https://yinren.com/2017/12/07/new-tags/"/>
-    <id>https://yinren.com/2017/12/07/new-tags/</id>
-    <published>2017-12-07T14:56:48.000Z</published>
-    <updated>2017-12-07T15:32:50.317Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="我的标签是tag1"><a href="#我的标签是tag1" class="headerlink" title="我的标签是tag1"></a>我的标签是tag1</h2>]]></content>
-    
-    <summary type="html">
-    
-      这里是内容简介
-    
-    </summary>
-    
-    
-      <category term="tags1" scheme="https://yinren.com/tags/tags1/"/>
-    
-  </entry>
-  
-  <entry>
     <title>new Types</title>
-    <link href="https://yinren.com/2017/12/07/new-Types/"/>
-    <id>https://yinren.com/2017/12/07/new-Types/</id>
+    <link href="yinren.51oinfo.com/2017/12/07/new-Types/"/>
+    <id>yinren.51oinfo.com/2017/12/07/new-Types/</id>
     <published>2017-12-07T14:54:50.000Z</published>
     <updated>2017-12-07T15:32:59.457Z</updated>
     
@@ -51,15 +31,15 @@
     
     </summary>
     
-      <category term="type1" scheme="https://yinren.com/categories/type1/"/>
+      <category term="type1" scheme="yinren.51oinfo.com/categories/type1/"/>
     
     
   </entry>
   
   <entry>
     <title>blog1</title>
-    <link href="https://yinren.com/2017/12/07/blog1/"/>
-    <id>https://yinren.com/2017/12/07/blog1/</id>
+    <link href="yinren.51oinfo.com/2017/12/07/blog1/"/>
+    <id>yinren.51oinfo.com/2017/12/07/blog1/</id>
     <published>2017-12-07T14:52:46.000Z</published>
     <updated>2017-12-07T15:24:53.861Z</updated>
     
@@ -70,64 +50,6 @@
       
       
         &lt;h2 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h2&gt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hexo-test</title>
-    <link href="https://yinren.com/2017/12/07/hexo-test/"/>
-    <id>https://yinren.com/2017/12/07/hexo-test/</id>
-    <published>2017-12-07T14:22:15.000Z</published>
-    <updated>2017-12-07T15:25:38.809Z</updated>
-    
-    <content type="html"><![CDATA[<a id="more"></a><p>##我的第一篇hexo博客</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;##我的第一篇hexo博客&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>hello-world.md</title>
-    <link href="https://yinren.com/2017/12/06/hello-world-md/"/>
-    <id>https://yinren.com/2017/12/06/hello-world-md/</id>
-    <published>2017-12-06T15:07:31.000Z</published>
-    <updated>2017-12-06T15:07:31.204Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://yinren.com/2017/12/06/hello-world/"/>
-    <id>https://yinren.com/2017/12/06/hello-world/</id>
-    <published>2017-12-06T11:59:38.311Z</published>
-    <updated>2017-12-06T11:59:38.311Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
       
     
     </summary>
