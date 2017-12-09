@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="yinren.51oinfo.com/"/>
-  <updated>2017-12-07T15:32:59.457Z</updated>
+  <updated>2017-12-09T11:05:35.890Z</updated>
   <id>yinren.51oinfo.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="yinren.51oinfo.com/hexo_test.html"/>
+    <id>yinren.51oinfo.com/hexo_test.html</id>
+    <published>2017-12-09T11:05:35.890Z</published>
+    <updated>2017-12-09T11:05:35.890Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hexo多终端测试"><a href="#hexo多终端测试" class="headerlink" title="hexo多终端测试"></a>hexo多终端测试</h2><p>hexo多终端测试</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;hexo多终端测试&quot;&gt;&lt;a href=&quot;#hexo多终端测试&quot; class=&quot;headerlink&quot; title=&quot;hexo多终端测试&quot;&gt;&lt;/a&gt;hexo多终端测试&lt;/h2&gt;&lt;p&gt;hexo多终端测试&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="yinren.51oinfo.com/hexo.html"/>
+    <id>yinren.51oinfo.com/hexo.html</id>
+    <published>2017-12-09T11:00:17.484Z</published>
+    <updated>2017-12-09T11:00:17.484Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><blockquote><p>hexo测试</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;hexo&quot;&gt;&lt;a href=&quot;#hexo&quot; class=&quot;headerlink&quot; title=&quot;hexo&quot;&gt;&lt;/a&gt;hexo&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;hexo测试&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>new Types</title>
