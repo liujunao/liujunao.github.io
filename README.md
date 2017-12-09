@@ -13,7 +13,8 @@
 > ````
 > skip_render: 
 >   - README.md
-> ```
+> ​```
+> ````
 
 ### 解决每次 hexo deploy 后都会出现的 404页面访问错误
 
@@ -23,4 +24,14 @@
 > skip_render:
 >   - CNAME
 > ```
+
+
+
+## 让百度可以搜索到你的博客
+
+* **[SEO优化](http://blog.csdn.net/sunshine940326/article/details/70936988)**
+
+  ​
+
+
 
