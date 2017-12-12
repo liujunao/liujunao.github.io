@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="yinren.51oinfo.com/"/>
-  <updated>2017-12-07T15:32:59.457Z</updated>
+  <updated>2017-12-12T04:38:12.297Z</updated>
   <id>yinren.51oinfo.com/</id>
   
   <author>
@@ -17,43 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new Types</title>
-    <link href="yinren.51oinfo.com/new-Types.html"/>
-    <id>yinren.51oinfo.com/new-Types.html</id>
-    <published>2017-12-07T14:54:50.000Z</published>
-    <updated>2017-12-07T15:32:59.457Z</updated>
+    <title>SQL反模式(一)</title>
+    <link href="yinren.51oinfo.com/SQL%E5%8F%8D%E6%A8%A1%E5%BC%8F-%E4%B8%80.html"/>
+    <id>yinren.51oinfo.com/SQL反模式-一.html</id>
+    <published>2017-12-12T03:30:24.000Z</published>
+    <updated>2017-12-12T04:38:12.297Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="为的分类是type1"><a href="#为的分类是type1" class="headerlink" title="为的分类是type1"></a>为的分类是type1</h2>]]></content>
-    
-    <summary type="html">
-    
-      这里是内容简介
-    
-    </summary>
-    
-      <category term="type1" scheme="yinren.51oinfo.com/categories/type1/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>blog1</title>
-    <link href="yinren.51oinfo.com/blog1.html"/>
-    <id>yinren.51oinfo.com/blog1.html</id>
-    <published>2017-12-07T14:52:46.000Z</published>
-    <updated>2017-12-07T15:24:53.861Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h2>]]></content>
+    <content type="html"><![CDATA[<h3 id="1-乱穿马路"><a href="#1-乱穿马路" class="headerlink" title="1. 乱穿马路:"></a><strong>1. 乱穿马路</strong>:</h3><ul><li>程序员通常使用<strong>逗号分隔的列表</strong>来避免在多对多的关系中创建交叉表，这种反模式称为“<strong>乱穿马路</strong>”</li></ul><blockquote><ol><li><p>目标：<strong>储存多值属性</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;    CREATE TABLE Product(</span><br><span class="line">&gt;    product_id SERIAL PRIMARY KEY,</span><br><span class="line">&gt;    product_name VARCHAR(100),</span><br><span class="line">&gt;    account_id BIGINT UNSIGNED,</span><br><span class="line">&gt;    ...</span><br><span class="line">&gt;    FOREGIN KEY (account_id) REFERENCES Accounts(account_id)</span><br><span class="line">&gt;    );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></li></ol></blockquote><p>&gt;</p><blockquote><p>   ​</p><ol><li><p>反模式：格式化的逗号分隔符：</p><ul><li><p>在一个字段中储存多个ID，并用逗号隔开</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;      CREATE TABLE Product(</span><br><span class="line">&gt;      product_id SERIAL PRIMARY KEY,</span><br><span class="line">&gt;      product_name VARCHAR(100),</span><br><span class="line">&gt;      account_id VARCHAR(1000), ---&gt; 逗号分隔列表</span><br><span class="line">&gt;      ...</span><br><span class="line">&gt;      );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></li></ul></li></ol></blockquote><p>&gt;</p><blockquote><pre><code>​&gt; 1. 查询指定帐号的产品：所有外键都合并在一个单元格内，查询会变得很困难&gt; 2. 查询指定产品的帐号：做多表联接查询定位一行数据将是不优雅和耗时的&gt; 3. 执行聚合查询：使用SQL内置的聚合函数，如：COUNT(),SUM(),AVG()等，但这些函数是针对分组行而设计的&gt; 4. 更新指定产品的帐号：不能使列表按顺序储存&gt; 5. 验证产品ID：无法对输入的数据的非法字段进行验证&gt; 6. 列表长度限制</code></pre><ol><li><p>解决：创建一张交叉表</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;    CREATE TABLE Contacts(</span><br><span class="line">&gt;    product_id BIGINT UNSIGNED NOT NULL,</span><br><span class="line">&gt;    account_id BIGINT UNSIGNED NOT NULL,</span><br><span class="line">&gt;    PRIMARY KEY (product_id,account_id),</span><br><span class="line">&gt;    FOREGIN KEY (product_id) REFERENCES Products(product_id),</span><br><span class="line">&gt;    FOREGIN KEY (account_id) REFERENCES Accounts(account_id)</span><br><span class="line">&gt;    );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></li></ol></blockquote><h3 id="2-单纯的树"><a href="#2-单纯的树" class="headerlink" title="2. 单纯的树"></a><strong>2. 单纯的树</strong></h3><ul><li>解决网站对文章的评论和相互评论的评论的数据的增删改查操作</li></ul><blockquote><ol><li><p>目标：分层储存与查询</p></li><li><p>反模式：总是依赖父节点</p><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;    &gt; CREATE TABLE Comments(</span><br><span class="line">&gt;    &gt; comment_id SERIAL FOREGIN KEY ,</span><br><span class="line">&gt;    &gt; **parent_id** BIGINT UNSIGNED,</span><br><span class="line">&gt;    &gt; FOREGIN KEY (parent_id) REFERENCES Products(comment_id),</span><br><span class="line">&gt;    &gt; );</span><br><span class="line">&gt;    &gt;</span><br></pre></td></tr></table></figure></blockquote><p>&gt;</p><blockquote><p><img src="img/sql1.jpg" alt=""></p><ol><li>使用邻接表查询树</li><li>使用邻接表维护树：增加一个字节点和修改一个节点的位置将会很简单，但删除一个节点会变得复杂</li></ol></blockquote></li><li><p>解决方案：使用其他树模型</p><blockquote><ol><li><p>路径枚举：通过将所有祖先的信息联合成一个字符串，并保存为每个节点的一个属性</p><p><img src="img/sql2.jpg" alt=""></p></li><li><p>嵌套集：储存子孙节点的相关信息</p><p><img src="img/sql3.jpg" alt=""></p><p><img src="img/sql4.jpg" alt=""></p></li><li><p>闭包表：记录了树中所有节点间的关系</p><p><img src="img/sql5.jpg" alt=""></p><p><img src="img/sql6.jpg" alt=""></p><p><img src="img/sql7.jpg" alt=""></p></li><li><p>优劣对比</p><p><img src="img/sql8.jpg" alt=""></p></li></ol></blockquote></li></ol></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;我的第一篇文章&quot;&gt;&lt;a href=&quot;#我的第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;我的第一篇文章&quot;&gt;&lt;/a&gt;我的第一篇文章&lt;/h2&gt;
+        &lt;h3 id=&quot;1-乱穿马路&quot;&gt;&lt;a href=&quot;#1-乱穿马路&quot; class=&quot;headerlink&quot; title=&quot;1. 乱穿马路:&quot;&gt;&lt;/a&gt;&lt;strong&gt;1. 乱穿马路&lt;/strong&gt;:&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;程序员通常使用&lt;strong&gt;逗号分隔的列表&lt;/str
       
     
     </summary>
     
+      <category term="SQL反模式" scheme="yinren.51oinfo.com/categories/SQL%E5%8F%8D%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+      <category term="逻辑型数据库设计反模式" scheme="yinren.51oinfo.com/tags/%E9%80%BB%E8%BE%91%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E5%8F%8D%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

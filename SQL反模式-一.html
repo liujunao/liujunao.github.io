@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="隐忍">
+
+  
+  <title>SQL反模式(一)</title>
+  
+
+  <link rel="alternate" href="/atom.xml" title="隐忍的博客" type="application/atom+xml">
+  <link rel="canonical" href="yinren.51oinfo.com/SQL反模式-一.html">
+  <link rel="shortcut icon" href="/">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_pb2xepysv85gsyvi.css">
+</head>
+
+
+  <body>
+    <aside class="aside">
+  <nav class="aside-menu">
+    <ul class="aside-list">
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-/img/homepage.png"></i><a href="/index.html" class="aside-menu-link" title="首页">首页</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-/img/document.png"></i><a href="/archives/index.html" class="aside-menu-link" title="所有文章">所有文章</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-/img/label.png"></i><a href="/tags/index.html" class="aside-menu-link" title="分类标签">分类标签</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-/img/share.png"></i><a href="/links/index.html" class="aside-menu-link" title="友情链接">友情链接</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-/img/people.png"></i><a href="/about/index.html" class="aside-menu-link" title="关于">关于</a></li>
+        
+      
+        
+        <li class="aside-item"><i class="aside-menu-icon iconfont icon-/img/flag.png"></i><a href="/atom.xml" class="aside-menu-link" title="RSS">RSS</a></li>
+        
+      
+    </ul>
+  </nav>
+
+  <article class="aside-show">
+    
+      <form class="search-from" id="search-from">
+  <input class="search-text" id="search-text" type="text" name="searchText" value="" autocomplete="off">
+  <button class="search-btn" id="search-btn" type="button"><i class="search-btn-icon iconfont icon-sousuo-sousuo"></i></button>
+</form>
+
+      <article class="search-data" id="search-data">
+  <button class="search-close" id="search-close"><i class="search-close-icon iconfont icon-houdongfangiconfont10"></i></button>
+
+  <div class="search-wrapper" id="search-wrapper"></div>
+</article>
+
+    
+    <div class="aside-show-wrapper">
+      <figure class="aside-avatar">
+        <img src="/img/avatar.png" alt="avatar" class="aside-avatar-img">
+        <figcaption class="aside-avatar-caption">
+          隐忍
+          
+          <strong class="aside-avatar-STRONG">个人博客</strong>
+          
+        </figcaption>
+      </figure>
+      <p class="aside-show-description">隐之所厌，忍之所误</p>
+      <ul class="aside-show-info">
+        <li class="aside-show-item">
+          <a href="javascript: void(0);" class="aside-show-link" title="微信" target="_blank"><i class="aside-show-icon iconfont icon-iconfontweixin"></i></a>
+          <div class="aside-show-outside aside-show-outside_1">
+            <img class="aside-show-IMG aside-show-IMG_1" src="/img/1207_4.jpg" alt="微信">
+          </div>
+        </li>
+        <li class="aside-show-item"><a href="http://m.blog.csdn.net/yin__ren" class="aside-show-link" title="CSDN" target="_blank"><i class="aside-show-icon iconfont icon-zhihu"></i></a></li>
+        <li class="aside-show-item"><a href="https://github.com/liujunao" class="aside-show-link" title="github" target="_blank"><i class="aside-show-icon iconfont icon-github"></i></a></li>
+        <li class="aside-show-item">
+          <a href="javascript: void(0);" class="aside-show-link" title="QQ" target="_blank"><i class="aside-show-icon iconfont icon-qq"></i></a>
+          <div class="aside-show-outside">
+            <img class="aside-show-IMG" src="/img/1207_3.jpg" alt="QQ">
+          </div>
+        </li>
+      </ul>
+    </div>
+  </article>
+</aside>
+
+
+    <article class="main" id="main">
+      <article class="post min-height">
+  
+  <header class="post-header">
+    
+    <h1 class="post-title">SQL反模式(一)</h1>
+    <p class="post-meta">
+      <span class="post-time">2017-12-12</span>
+      
+      <a href="/categories/SQL反模式/" title="SQL反模式" class="post-categories">SQL反模式</a>
+      
+      
+      <a href="/tags/逻辑型数据库设计反模式/"" title="逻辑型数据库设计反模式" class="post-tags"><i class="post-tags-icon iconfont icon-biaoqian"></i>逻辑型数据库设计反模式</a>
+      
+    </p>
+    
+  </header>
+  <div class="post-content"><h3 id="1-乱穿马路"><a href="#1-乱穿马路" class="headerlink" title="1. 乱穿马路:"></a><strong>1. 乱穿马路</strong>:</h3><ul>
+<li>程序员通常使用<strong>逗号分隔的列表</strong>来避免在多对多的关系中创建交叉表，这种反模式称为“<strong>乱穿马路</strong>”</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>目标：<strong>储存多值属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;    CREATE TABLE Product(</span><br><span class="line">&gt;    	product_id SERIAL PRIMARY KEY,</span><br><span class="line">&gt;    	product_name VARCHAR(100),</span><br><span class="line">&gt;    	account_id BIGINT UNSIGNED,</span><br><span class="line">&gt;    	...</span><br><span class="line">&gt;    	FOREGIN KEY (account_id) REFERENCES Accounts(account_id)</span><br><span class="line">&gt;    );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>   ​</p>
+<ol>
+<li><p>反模式：格式化的逗号分隔符：</p>
+<ul>
+<li><p>在一个字段中储存多个ID，并用逗号隔开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;      CREATE TABLE Product(</span><br><span class="line">&gt;      	product_id SERIAL PRIMARY KEY,</span><br><span class="line">&gt;      	product_name VARCHAR(100),</span><br><span class="line">&gt;      	account_id VARCHAR(1000), ---&gt; 逗号分隔列表</span><br><span class="line">&gt;      	...</span><br><span class="line">&gt;      );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<pre><code>​
+
+&gt; 1. 查询指定帐号的产品：所有外键都合并在一个单元格内，查询会变得很困难
+&gt; 2. 查询指定产品的帐号：做多表联接查询定位一行数据将是不优雅和耗时的
+&gt; 3. 执行聚合查询：使用SQL内置的聚合函数，如：COUNT(),SUM(),AVG()等，但这些函数是针对分组行而设计的
+&gt; 4. 更新指定产品的帐号：不能使列表按顺序储存
+&gt; 5. 验证产品ID：无法对输入的数据的非法字段进行验证
+&gt; 6. 列表长度限制
+</code></pre><ol>
+<li><p>解决：创建一张交叉表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;    CREATE TABLE Contacts(</span><br><span class="line">&gt;    	product_id BIGINT UNSIGNED NOT NULL,</span><br><span class="line">&gt;    	account_id BIGINT UNSIGNED NOT NULL,</span><br><span class="line">&gt;    	PRIMARY KEY (product_id,account_id),</span><br><span class="line">&gt;    	FOREGIN KEY (product_id) REFERENCES Products(product_id),</span><br><span class="line">&gt;    	FOREGIN KEY (account_id) REFERENCES Accounts(account_id)</span><br><span class="line">&gt;    );</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<h3 id="2-单纯的树"><a href="#2-单纯的树" class="headerlink" title="2. 单纯的树"></a><strong>2. 单纯的树</strong></h3><ul>
+<li>解决网站对文章的评论和相互评论的评论的数据的增删改查操作</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>目标：分层储存与查询</p>
+</li>
+<li><p>反模式：总是依赖父节点</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;    &gt; CREATE TABLE Comments(</span><br><span class="line">&gt;    &gt; 	comment_id SERIAL FOREGIN KEY ,</span><br><span class="line">&gt;    &gt; 	**parent_id** BIGINT UNSIGNED,</span><br><span class="line">&gt;    &gt; 	FOREGIN KEY (parent_id) REFERENCES Products(comment_id),</span><br><span class="line">&gt;    &gt; );</span><br><span class="line">&gt;    &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p><img src="img/sql1.jpg" alt=""></p>
+<ol>
+<li>使用邻接表查询树</li>
+<li>使用邻接表维护树：增加一个字节点和修改一个节点的位置将会很简单，但删除一个节点会变得复杂</li>
+</ol>
+</blockquote>
+</li>
+<li><p>解决方案：使用其他树模型</p>
+<blockquote>
+<ol>
+<li><p>路径枚举：通过将所有祖先的信息联合成一个字符串，并保存为每个节点的一个属性</p>
+<p><img src="img/sql2.jpg" alt=""></p>
+</li>
+<li><p>嵌套集：储存子孙节点的相关信息</p>
+<p><img src="img/sql3.jpg" alt=""></p>
+<p><img src="img/sql4.jpg" alt=""></p>
+</li>
+<li><p>闭包表：记录了树中所有节点间的关系</p>
+<p><img src="img/sql5.jpg" alt=""></p>
+<p><img src="img/sql6.jpg" alt=""></p>
+<p><img src="img/sql7.jpg" alt=""></p>
+</li>
+<li><p>优劣对比</p>
+<p><img src="img/sql8.jpg" alt=""></p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</div>
+    
+      <p class="post-copyright">若无特别说明，本文系原创，<a class="post-copyright-link" href="https://creativecommons.org/licenses/by/4.0/deed.zh" title="署名-非商业性使用 4.0 (CC BY-NC 4.0)" target="_blank">署名-非商业性使用 4.0 (CC BY-NC 4.0)</a>协议，转载文章请注明来自<a class="post-copyright-link" href="/" title="隐忍的个人博客" target="_blank">隐忍的个人博客</a>，或链接上原文地址：<a class="post-copyright-link" href="yinren.51oinfo.com/SQL反模式-一.html" title="yinren.51oinfo.com/SQL反模式-一.html" target="_blank">yinren.51oinfo.com/SQL反模式-一.html</a></p>
+
+      
+        
+<article class="comments">
+  <div id="SOHUCS" sid="SQL反模式(一)"></div>
+  <script type="text/javascript">
+  	( function () {
+  		var appid = "cysXoaLrO",
+  		    conf = "d728bfac2289e4139bef3956efe4401f",
+      		width = window.innerWidth || document.documentElement.clientWidth;
+
+  		if ( width < 960 ) {
+    		window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    } )();
+  </script>
+  <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+</article>
+
+
+      
+      <div class="toc-wrapper">
+        <div class="toc-scroll">
+          <div class="toc-middle">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-乱穿马路"><span class="toc-text"><a href="#1-&#x4E71;&#x7A7F;&#x9A6C;&#x8DEF;" class="headerlink" title="1. &#x4E71;&#x7A7F;&#x9A6C;&#x8DEF;:"></a><strong>1. &#x4E71;&#x7A7F;&#x9A6C;&#x8DEF;</strong>:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-单纯的树"><span class="toc-text"><a href="#2-&#x5355;&#x7EAF;&#x7684;&#x6811;" class="headerlink" title="2. &#x5355;&#x7EAF;&#x7684;&#x6811;"></a><strong>2. &#x5355;&#x7EAF;&#x7684;&#x6811;</strong></span></a></li></ol>
+          </div>
+        </div>
+      </div>
+    
+  
+</article>
+
+      <footer class="footer">
+  <p class="footer-text">驱动于 <a href="https://hexo.io/zh-cn/" class="footer-link" title="Hexo">Hexo</a>，主题由 <a href="https://yinren.com/" class="footer-link" title="隐忍">隐忍</a> 设计移植而来</p>
+</footer>
+
+    </article>
+
+    <script src="/js/to-top.js"></script>
+    <script src="/js/search.js"></script>
+  </body>
+</html>
